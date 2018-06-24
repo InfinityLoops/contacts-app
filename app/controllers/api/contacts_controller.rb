@@ -1,11 +1,7 @@
 class Api::ContactsController < ApplicationController
   def index
-    if current_user
-      @contacts = current_user.contacts
+      @contacts = Contact.first(5)
       render 'index.json.jbuilder'
-    else
-      render json: []
-    end
   end
 
   def show
